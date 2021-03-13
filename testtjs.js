@@ -1,24 +1,62 @@
+var valuecounter
 
-var button = document.getElementById("plus");
-var button = document.getElementById("moins");
-var input = document.getElementById("input");
-var pricefixe = document.getElementById("pricefixe");
-var tot = document.getElementById("tot");
+var fixeprice = document.querySelector("#fixeprice").innerText;
 
-plus.addEventListener("click" ,  function(){
+function pricetot (){
 
-    input.value = parseInt(input.value) + 1 ;
-});
+var Tot = valuecounter * fixeprice 
 
-moins.addEventListener("click" ,  function(){
-    input.value = parseInt(input.value) -  1 ;
-
-});
-
-tot = input.value  * pricefixe ; 
+document.getElementById("result").innerText = Tot
 
 
+}
 
+
+document.querySelector("#plus").addEventListener("click" , function(){
+
+
+valuecounter = document.querySelector("#quantite").value
+
+valuecounter++;
+
+
+document.querySelector("#quantite").value = valuecounter
+
+
+if ( valuecounter > 1 ) {
+
+    document.querySelector("#moins").removeAttribute("disabled","disabled")
+
+}
+
+pricetot ()
+
+
+})
+
+document.querySelector("#moins").addEventListener("click" , function(){
+
+
+    valuecounter = document.querySelector("#quantite").value
+    
+    valuecounter--;
+    
+    
+    document.querySelector("#quantite").value = valuecounter
+
+if (valuecounter == 1){ 
+    
+    
+    document.querySelector("#moins").setAttribute("disabled","disabled")
+
+    
+
+}
+
+pricetot ()
+
+
+})
 
 
 
